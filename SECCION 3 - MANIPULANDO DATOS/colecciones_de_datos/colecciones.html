@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Colecciones de datos</title>
+    <script src="angular.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+
+<body ng-app="coleccionesApp">
+
+
+    <div ng-controller="controladorColecciones">
+        
+        
+        <ul>
+            <li ng-repeat="datoIndividual in datos" ng-click="mostrarDatos(datoIndividual)"> {{datoIndividual}}</li>
+        </ul>
+        <input type="text" ng-model="nuevoItem">
+        <button ng-click="agregar()" > Guardar </button>
+        
+        
+        <hr>
+        
+        <ul>
+            <li ng-repeat="heroe in heroes" ng-click="mostrarDatos(heroe.apellido)"> {{heroe.nombre}}</li>
+        </ul>
+        
+    </div>
+
+
+    <script>
+        var coleccionDatosApp = angular.module('coleccionesApp', []);
+
+        coleccionDatosApp.controller('controladorColecciones', function ($scope) {
+            
+            $scope.datos = ['piedra', 'papel', 'tijera'];
+            
+            $scope.heroes = [
+				
+				   { nombre:"Arnold", apellido:"Schwarzenegger"},
+				   { nombre:"Chuck", apellido:"Norris"},
+                   { nombre:"Bruce", apellido:"Lee"} 
+			  
+			  ]
+            
+            $scope.agregar = function(){
+            
+                $scope.datos.push( $scope.nuevoItem );
+                
+            }
+            
+            $scope.mostrarDatos = function(info){
+                alert('Elegiste : ' + info)
+            }
+            
+            
+
+            
+
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Routing</title>
+    <script src="angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.14/angular-route.min.js"></script>
+    <style>
+        ul{margin: 0; padding: 0; margin: auto; width: 400px;}
+        li{float: left; height: 30px; list-style-type: none; width: 100px;}
+        a{display: block}
+        h2{color:red}
+        div{clear: both}
+    </style>
+</head>
+
+<body ng-app="routingApp">
+    
+    <div id="menu" ng-include=" 'plantillas/menu.html' "></div>
+
+
+     <div id="contenedor" ng-view></div>
+
+    <script>
+        var miRouting = angular.module('routingApp', ['ngRoute']);
+
+        
+        miRouting.config(['$routeProvider',
+         function ($routeProvider) { $routeProvider.
+                    when('/seccion1', {
+                        templateUrl: 'plantillas/seccion1.html',
+                        controller:'miControlador'
+                    })
+                    .when('/seccion2', {
+                        templateUrl: 'plantillas/seccion2.html',
+                    })
+                    .when('/seccion3', {
+                        templateUrl: 'plantillas/seccion3.html',
+                    })
+                    .when('/pantalones/:color', {
+                        templateUrl: 'plantillas/detalles.html',
+                        controller:'miControlador'
+                    })
+                    .otherwise({
+                        redirectTo: '/',
+                        templateUrl: 'plantillas/inicio.html',
+                    });
+         }]);
+
+
+
+        
+    </script>
+
+<script src="controladores/controladorSeccion1.js"></script>
+</body>
+
+</html>

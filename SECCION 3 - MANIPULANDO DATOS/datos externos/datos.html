@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Datos</title>
+    <script src="angular.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body ng-app="datosApp">
+
+
+    <div ng-controller="controladorDatos">
+        
+        <h1>A-Team</h1>
+        <p> {{equipo.historia}} </p>
+
+        
+        <ul>
+            <li ng-repeat="integrante in equipo.integrantes">
+                {{integrante.rango}} {{integrante.nombre}}  ( {{integrante.especialidad}} )
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script>
+        var misDatos = angular.module('datosApp', []);
+
+        misDatos.controller('controladorDatos', function ($scope , $http) {
+
+            
+            $scope.inicializar = function(){
+                
+              $http.get('datos.json').
+              success(function(datos) {
+                
+                  $scope.equipo = datos;
+                  
+              }).
+              error(function(datos) {
+                console.log(datos);
+              });
+            
+                
+            }
+            
+            
+            /// Invoca esta funcion al arrancar AngularJS
+            $scope.inicializar()
+            
+            
+
+        })
+    </script>
+
+
+</body>
+
+</html>

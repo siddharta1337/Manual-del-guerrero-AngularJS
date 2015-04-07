@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS</title>
+	<meta name="viewport" content="width=device-width">
+
+    <!--  jQuery  -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+	<!-- CSS Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+	<!-- Javascript Bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+
+
+
+
+</head>
+
+<body ng-app="preguntas">
+
+	<div class="container text-center" ng-controller="preguntasController">
+
+		<div class="jumbotron">
+			<h1>AngularJS + Bootstrap</h1>
+		</div>
+
+
+
+		<div class="panel panel-default col-sm-6 col-sm-offset-3">
+
+			<div class="panel-body ">
+
+				<p>¿Cuál es el sentido de la vida, el universo y todo lo demás?</p>
+
+				<button class="btn btn-primary" data-toggle="modal" data-target=".ventanaModal" ng-click="responder()">Calcular</button>
+
+			</div>
+
+		</div>
+
+
+		<div class="modal fade ventanaModal">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<h1>¿?</h1>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+	
+
+	<script type="text/javascript">
+
+	var miApp = angular.module('preguntas',[]);
+
+	miApp.controller('preguntasController', ['$scope', function($scope){
+
+		$scope.responder = function(){
+
+			$scope.respuestaDefinitiva = 42
+
+		}
+	}]);
+
+	</script>
+</body>

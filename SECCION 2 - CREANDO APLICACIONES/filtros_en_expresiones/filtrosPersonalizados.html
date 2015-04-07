@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="filtros">
+
+<head>
+    <meta charset="utf-8">
+    <title>Filtros De expresiones</title>
+    <meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+
+    <h1>{{ "abracadabra"  | cambiaVocal:"-":"a"}}</h1>
+
+    <script src="angular.min.js"></script>
+
+    <script>
+        var filtroApp = angular.module('filtros', [])
+
+         filtroApp.filter('cambiaVocal', function () {
+            
+            var cambiaVocalFiltro = function (datosOriginales, argumento , segundoArgumento) {
+                
+                
+                 var nuevosDatos = datosOriginales.replace(RegExp(segundoArgumento, "g"), argumento)
+                
+                return nuevosDatos;
+            };
+             
+            return cambiaVocalFiltro;
+             
+        });
+    </script>
+</body>
+
+</html>

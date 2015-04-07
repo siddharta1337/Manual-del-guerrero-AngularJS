@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="filtros">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Filtros De expresiones </title>
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        
+        
+        <h1>Angular Café</h1>
+        <hr>
+        
+        <h2>Café Americano: {{ 12 | currency : "USD $" }}</h2>
+        <h2>Café Late: {{ 12 | currency : "USD $" }}</h2>
+    
+        <script src="angular.min.js" ></script>
+        
+        <script>
+        
+            var filtros = angular.module('filtros', [])
+        
+        </script>
+    </body>
+</html>

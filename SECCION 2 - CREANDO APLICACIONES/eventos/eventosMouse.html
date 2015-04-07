@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Eventos AngularJS</title>
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <style type="text/css">
+        #cuadrado{ background: red; width: 100px; height: 100px; margin: 30px 10px;}
+    </style>
+
+</head>
+
+<body ng-app="eventosApp">
+
+
+    <div ng-controller="eventosController">
+
+        <div id="cuadrado" ng-mouseenter="dentroDelDiv()"  ng-mouseleave="fueraDelDiv()">
+        </div>
+    	
+        <strong>Estado: {{estado}}</strong>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+    var miApp = angular.module('eventosApp', []);
+
+    miApp.controller('eventosController', function($scope) {
+
+    		$scope.estado = 'zzzzz';
+
+    		$scope.dentroDelDiv= function(){
+
+    			$scope.estado = 'MouseEnter activo';
+
+    		}
+
+            $scope.fueraDelDiv = function(){
+
+                $scope.estado = 'MouseOver activo';
+
+            }
+
+
+    })
+    </script>
+
+</body>
+
+</html>

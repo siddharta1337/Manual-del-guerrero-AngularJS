@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="filtros">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Filtros De expresiones </title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+            p{
+                text-transform: capitalize;
+            }
+        </style>
+    </head>
+    <body>
+        
+    
+        
+        <!--
+        <p> {{ false | number }}</p>
+
+        <p> {{ 3.141592653589 | number: 2}}</p>
+-->
+        
+        <p> {{ 22.205309 | number: 2 | currency: "MXP $"}}</p>
+
+    
+        <script src="angular.min.js" ></script>
+        
+        <script>
+        
+            var filtros = angular.module('filtros', [])
+        
+        </script>
+    </body>
+</html>

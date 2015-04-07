@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Eventos AngularJS</title>
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-touch.js"></script>
+
+    
+
+</head>
+
+<body ng-app="eventosApp">
+
+
+    <div ng-controller="eventosController">
+
+        <input type="text" ng-keydown="detectarTecla($event)" autofocus="true">
+        <br>
+
+        <strong>{{estado}}</strong>
+
+    </div>
+
+
+    <script type="text/javascript">
+    var miApp = angular.module('eventosApp', []);
+
+    miApp.controller('eventosController', function($scope) {
+
+
+        $scope.detectarTecla = function(e) {
+
+            switch (e.keyCode) {
+
+                case 37:
+                    $scope.estado = 'izquierda';
+                    break;
+
+                case 38:
+                    $scope.estado = 'arriba';
+                    break;
+
+                case 39:
+                    $scope.estado = 'derecha';
+                    break;
+
+                case 40:
+                    $scope.estado = 'abajo';
+                    break;
+            }
+
+        }
+
+
+
+    })
+    </script>
+
+</body>
+
+</html>

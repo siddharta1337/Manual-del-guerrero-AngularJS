@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Eventos AngularJS</title>
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<body ng-app="eventosApp">
+
+
+    <div ng-controller="eventosController">
+
+    	<button ng-click="saludo()"> Click </button>  
+
+    	<p ng-click="saludo()"> También funciona en párrafos </p>
+
+    	<button ng-dblclick="saludo()"> Doble Click </button> 
+
+    	<br>
+    	<br>
+
+    	<strong> Cantidad de clicks: {{conteoClicks}}</strong>
+    </div>
+
+
+    <script type="text/javascript">
+
+    var miApp = angular.module('eventosApp', []);
+
+    miApp.controller('eventosController', function($scope) {
+
+    		$scope.conteoClicks = 0;
+
+    		$scope.saludo = function(){
+
+    			$scope.conteoClicks++
+
+    		}
+
+
+    })
+    </script>
+
+</body>
+
+</html>

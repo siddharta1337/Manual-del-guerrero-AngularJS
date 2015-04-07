@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Directivas</title>      
+    </head>
+    <body ng-app="directivas">
+        
+        <usuario nombre="Erik" apellido="Porroa"> </usuario>
+        
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js">
+        </script>
+        
+        <script>
+                var directivaApp = angular.module('directivas', []);
+            
+                directivaApp.directive('usuario', function() {
+                    
+                    var valoresInternos = {};
+
+                    
+                    valoresInternos.scope = {
+                        nombreUsuario : '@nombre',
+                        apellidoUsuario: '@apellido'
+                    }
+                    
+                    valoresInternos.restrict = 'E';
+                    valoresInternos.template = "¡Bienvenido {{nombreUsuario}} {{apellidoUsuario}}!";
+
+                    return valoresInternos;
+                    
+                });
+            
+                
+        </script>
+    </body>
+</html>

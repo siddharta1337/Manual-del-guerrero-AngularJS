@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Estilos</title>
+    <script src="angular.min.js"></script>
+    <style>
+        div{transition: all 1s}
+        img {
+            display: block;
+            margin: auto
+        }
+        
+        .preguntas {
+            width: 400px;
+            height: 100px;
+            margin: 30px auto;
+            background: silver;
+            padding: 20px;
+            text-align: center
+        }
+        .segundoEstilo{
+            background: #9dcb04;
+            border: dotted 2px;
+            height: 250px;
+        }
+        .segundoEstilo button{
+            background: #ce00ff;
+            border: solid 2px;
+            color: #ffffff;
+            padding: 20px;
+        }
+        h2{ width: 400px;
+            margin:auto;}
+    </style>
+</head>
+
+<body ng-app="estilosApp">
+
+
+    <div ng-controller="controladorEstilos">
+
+        <img alt="incertidumbre" ng-src="{{imagenActiva}}">
+        
+        <div id="contenedorCaja" ng-hide="ocultarMenu">
+            <img src="img/box.png" alt="caja">
+        </div>
+        
+    
+        
+        <div ng-switch="opcion">
+            
+            <h2 ng-switch-when="a">¡Gato Feliz!</h2>
+            <h2 ng-switch-when="b">Mal día para ser gato en este universo</h2>
+        
+        </div>
+        
+        <div class="preguntas" ng-style="estilosAngular" ng-class="clasesAngular" >
+            <button ng-click="opcionA()">Opción A</button>
+            <button ng-click="opcionB()">Opción B</button>
+            <hr>
+
+            <button ng-click="cambiarEstilo()">Cambiar Estilo</button>
+            <button ng-click="cambiarClase()">Cambiar Clase</button>
+
+            <hr>
+            <button ng-click="ocultarCaja()">Ocultar Caja</button>
+            <button ng-click="mostrarCaja()">Mostrar Caja</button>
+        </div>
+
+    </div>
+
+
+    <script>
+        var misEstilos = angular.module('estilosApp', []);
+
+        misEstilos.controller('controladorEstilos', function ($scope) {
+
+            $scope.imagenActiva = 'img/incertidumbre.png'
+            
+            $scope.opcionA = function () {
+                $scope.imagenActiva = 'img/cat1.png';
+                $scope.opcion = 'a'
+            }
+
+            $scope.opcionB = function () {
+                $scope.imagenActiva = 'img/cat2.png'
+                $scope.opcion = 'b'
+            }
+
+            $scope.cambiarEstilo = function () {
+                $scope.estilosAngular = {
+                    width:'600px',
+                    height:'200px',
+                    borderRadius:'10px'
+                }
+            }
+
+            $scope.cambiarClase = function () {
+                $scope.clasesAngular = 'segundoEstilo'
+            }
+
+            $scope.ocultarCaja = function () {
+                $scope.ocultarMenu = true
+            }
+            
+            $scope.mostrarCaja = function () {
+                $scope.ocultarMenu = false
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>

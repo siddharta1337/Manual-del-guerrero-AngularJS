@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="controladores">
+
+<head>
+    <meta charset="utf-8">
+    <title>Controladores</title>
+    <meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+
+    <div ng-controller="frutas">
+        {{ nombre }}
+    </div>
+    
+    <div ng-controller="personas">
+        {{ nombre }}
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+
+    <script>
+        var controladorApp = angular.module('controladores', [])
+
+         controladorApp.controller('frutas', function ($scope) {
+
+            $scope.nombre = "Mango"
+
+        })
+         
+        controladorApp.controller("personas", function($scope){
+        
+            $scope.nombre  = "Walter Avila"
+        })
+        
+    </script>
+</body>
+
+</html>

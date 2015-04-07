@@ -1,0 +1,26 @@
+{
+    "integrantes": [
+        {
+            "nombre": "John 'Hannibal' Smith",
+            "especialidad": "Estrategia",
+            "rango": "Coronel"
+        },
+        {
+            "nombre": " Templeton Peck",
+            "especialidad": "Lógistica",
+            "rango": "Teniente"
+        },
+        {
+            "nombre": " H.M. Murdock",
+            "especialidad": "Piloto",
+            "rango": "Capitán"
+        },
+        {
+            "nombre": "B.A Baracus",
+            "especialidad": "Artilería",
+            "rango": "Sargento"
+        }
+    ],
+    "historia": "Hace 10 años un tribunal militar condenó a prisión a un grupo de comandos por un crimen que no cometieron, esos hombres escaparon de prisión y se instalaron clandestinamente en Los Angeles… hoy aunque el gobierno los busca, si alguien tiene un problema, necesita ayuda y puede localizarlos,tal vez pueda contratarlos"
+
+}
